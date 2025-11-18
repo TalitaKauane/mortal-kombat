@@ -1,17 +1,26 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     private Animator animator;
     private Transform transform;
+    private bool attacking;
+    private float move;
+    private int life;
     [SerializeField] private int joyId;
     [SerializeField] private float speed;
 
     [SerializeField] private GameObject punching, kick;
+    [SerializeField] private Slider slider;
+    [SerializeField] private Image image;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        life = 100;
+        attacking = false;
+
         transform = GetComponent<Transform>();
         animator = GetComponent<Animator>();
 
@@ -24,19 +33,25 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButtonDown("Joy" + joyId + "Box"))
         {
+            attacking = true;
             punching.SetActive(true);
             animator.SetBool("Punching", true);
+            animator.SetBool("Kick", false);
         }
         if (Input.GetButtonDown("Joy" + joyId + "Circle"))
         {
+            attacking = true;
             kick.SetActive(true);
             animator.SetBool("Kick", true);
+            animator.SetBool("Punching", false);
         }
 
         // Horizontal movement
 
         // TODO - Diferenciar joysticks
-        float move = Input.GetAxis("Horizontal");
+        move = 0;
+        if (!attacking)
+            move = Input.GetAxis("Horizontal" + joyId);
 
         if (move > 0) {
             animator.SetBool("Forward", true);
@@ -54,6 +69,7 @@ public class Player : MonoBehaviour
 
     public void EndFightMovement(string movement)
     {
+        attacking = false;
         animator.SetBool(movement, false);
         switch (movement)
         {
@@ -65,6 +81,28 @@ public class Player : MonoBehaviour
                 break;
             default:
                 break;
+        }
+    }
+
+    public void IncreasetLife(int life)
+    {
+        this.life += life;
+        if (this.life < 0)
+            this.life = 0;
+
+        slider.value = this.life;
+
+        if (this.life < 30)
+        {
+            image.color = Color.red;
+        }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Kick" && other.gameObject != kick)
+        {
+            IncreasetLife(-10);
         }
     }
 }
