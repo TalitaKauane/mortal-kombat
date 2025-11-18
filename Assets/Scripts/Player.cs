@@ -4,12 +4,13 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     private Animator animator;
+    private Rigidbody rigidbody;
     private Transform transform;
-    private bool attacking;
+    private bool attacking, jump;
     private float move;
     private int life;
     [SerializeField] private int joyId;
-    [SerializeField] private float speed;
+    [SerializeField] private float speed, jumpForce;
 
     [SerializeField] private GameObject punching, kick;
     [SerializeField] private Slider slider;
@@ -19,10 +20,12 @@ public class Player : MonoBehaviour
     void Start()
     {
         life = 100;
+        jump = false;
         attacking = false;
 
-        transform = GetComponent<Transform>();
         animator = GetComponent<Animator>();
+        rigidbody = GetComponent<Rigidbody>();
+        transform = GetComponent<Transform>();
 
         punching.SetActive(false);
         kick.SetActive(false);
@@ -31,6 +34,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // TODO - refatorar
         if (Input.GetButtonDown("Joy" + joyId + "Box"))
         {
             attacking = true;
@@ -44,6 +48,11 @@ public class Player : MonoBehaviour
             kick.SetActive(true);
             animator.SetBool("Kick", true);
             animator.SetBool("Punching", false);
+        }
+        if (!jump && Input.GetButtonDown("Joy" + joyId + "X"))
+        {
+            jump = true;
+            animator.SetBool("Jump", true);
         }
 
         // Horizontal movement
@@ -67,6 +76,16 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void FixedUpdate()
+    {
+        if (jump)
+        {
+            animator.SetBool("Jump", true);
+            jump = false;
+            rigidbody.linearVelocity = Vector3.up * jumpForce;
+        }
+    }
+
     public void EndFightMovement(string movement)
     {
         attacking = false;
@@ -82,6 +101,18 @@ public class Player : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public void SetFallingAnimation()
+    {
+        animator.SetBool("Falling", true);
+        animator.SetBool("Jump", false);
+    }
+
+    public void SetIdle()
+    {
+        animator.SetBool("Falling", false);
+        jump = false;
     }
 
     public void IncreasetLife(int life)

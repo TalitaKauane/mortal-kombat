@@ -885,6 +885,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   joyId: 2
   speed: 1.2
+  jumpForce: 0
   punching: {fileID: 1625905564}
   kick: {fileID: 1350635570}
   slider: {fileID: 1170212177}
@@ -1314,6 +1315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   joyId: 1
   speed: 1.2
+  jumpForce: 20
   punching: {fileID: 594684839}
   kick: {fileID: 55505644}
   slider: {fileID: 1575106181}
