@@ -102,7 +102,11 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.tag == "Kick" && other.gameObject != kick)
         {
-            IncreasetLife(-10);
+            IncreasetLife(-7);
+        }
+        if (other.gameObject.tag == "Punghing" && other.gameObject != punching)
+        {
+            IncreasetLife(-3);
         }
     }
 }
