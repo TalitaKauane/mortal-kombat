@@ -928,7 +928,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ea94e444a5f994cfb9b41f90df233f99, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c16f8f863da8743b3931be60dd3f6c3b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1095,7 +1095,7 @@ GameObject:
   - component: {fileID: 1398203440}
   - component: {fileID: 1398203439}
   m_Layer: 5
-  m_Name: Selected
+  m_Name: SelectedBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1140,7 +1140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ea94e444a5f994cfb9b41f90df233f99, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c16f8f863da8743b3931be60dd3f6c3b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1547,7 +1547,7 @@ GameObject:
   - component: {fileID: 1886183299}
   - component: {fileID: 1886183298}
   m_Layer: 5
-  m_Name: Selected
+  m_Name: SelectedYellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1592,7 +1592,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ea94e444a5f994cfb9b41f90df233f99, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c16f8f863da8743b3931be60dd3f6c3b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1723,10 +1723,10 @@ MonoBehaviour:
   - {fileID: 1942169554}
   - {fileID: 925668388}
   listButtons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1011259331}
+  - {fileID: 2047446272}
+  - {fileID: 1886183298}
+  - {fileID: 1398203439}
   p1Selected: {fileID: 21300000, guid: c16f8f863da8743b3931be60dd3f6c3b, type: 3}
   p2Selected: {fileID: 21300000, guid: e45424e507a3c49148906127a9360a0b, type: 3}
   empty: {fileID: 21300000, guid: ea94e444a5f994cfb9b41f90df233f99, type: 3}
@@ -1757,7 +1757,7 @@ GameObject:
   - component: {fileID: 2047446273}
   - component: {fileID: 2047446272}
   m_Layer: 5
-  m_Name: Selected
+  m_Name: SelectedRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1802,7 +1802,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ea94e444a5f994cfb9b41f90df233f99, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c16f8f863da8743b3931be60dd3f6c3b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
